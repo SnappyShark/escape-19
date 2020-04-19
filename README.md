@@ -1,7 +1,7 @@
 # escape-19
 CEG-IT project for covid-19 tracker
 
-Members working on it:
+Members working on the project:
 
 Shankar S
 Prithviraj K
