@@ -11,4 +11,4 @@ Vikram B
 Aim of the project :
   To build a website that can track the people who visit a shop and to find the possibly exposed people to a COVID-19 patient.
 
-Refer to Escape-19.docx.
+Refer to Escape-19.docx
