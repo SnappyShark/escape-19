@@ -28,9 +28,9 @@ $repwd = $_POST['repwd'];
 if($pwd === $repwd)
 {
     $pwdFlagFalse = 0;
-    $sql = "INSERT INTO signup VALUES('$shop_name', '$shop_type','$owner_name', $phone_num, '$locality',
+    $sql = "INSERT INTO signup_retail VALUES('$shop_name', '$shop_type','$owner_name', $phone_num, '$locality',
                 '$address', $patrol_num)";
-    $sql1 = "INSERT INTO login VALUES('$shop_name', $phone_num, '$pwd')";
+    $sql1 = "INSERT INTO login_retail VALUES('$shop_name', $phone_num, '$pwd')";
     $result = $conn->query($sql);
     $result1 = $conn->query($sql1);
     echo "account created successfully";
