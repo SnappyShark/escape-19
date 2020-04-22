@@ -34,8 +34,7 @@ if($pwd === $repwd)
     $result1 = $conn->query($sql1);
     echo "account created successfully";
 }
-else
-{
+else{
     echo "
         <form name='getPwd' action = 'signup-validation.php' method = 'POST'>
             <input type = 'text' value = '$shop_name' name = 'shop_name' >
