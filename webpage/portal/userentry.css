@@ -1,0 +1,135 @@
+#textbox{
+	margin:5px;
+    height:50px;
+    font-size:14pt;
+}
+#logoutlink{
+	float: right;
+}
+h1
+{
+    font-size:70px;
+}
+
+#topbar
+{
+    border: 10px;
+    position: absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    height: 8%;
+    font-style: oblique;
+    background-color: rgb(176,149,104);
+}
+
+#log
+{
+    color:black;
+    font-style: normal;
+    font-family: monospace;
+    font-size: 30px;
+    position:absolute;
+    right:0%;
+    top:0%;
+    height:72px;
+}
+
+#log:hover
+{
+    transition: ease 0.5s;
+    background-color: black;
+    color: rgb(176,149,104);
+}
+
+body
+{
+    background-image: url(../../images/background.jpg);
+    background-position: center;
+    width: auto;
+    height: auto;
+}
+
+.wrap
+{
+    position: absolute;
+    top:10%;
+    width: 70%;
+    border-radius: 20px;
+    left:13%;
+    background:rgba(0,0,0,0.8);
+    padding:40px;
+    color:#fff;
+    margin-top:0px;
+    height: 80%;
+    font
+}
+#back
+{
+    position: absolute;
+    bottom:0%;
+    right:0%;
+    background-color: rgb(176,149,104);
+    color:black;
+    border-radius:30px;
+    width:150px;
+}
+
+button
+{
+    color: rgb(176,149,104);
+    border-color: transparent;
+    width:200px;
+    font-size: 45px;
+    font-family: monospace;
+    border-radius:30px;
+    background-color: rgb(176,149,104);
+
+}
+#back:hover
+{
+    transition: ease 0.7s;
+    background-color:  black;
+    color: white;
+    outline-color: transparent;
+}
+h2
+{
+    text-align:center;
+    font-family: monospace;
+    font-size:100px;
+    margin: 12px;
+}
+
+
+input[type=text],input[type=password]
+{
+    font-size: 25px;
+    width:100%;
+    box-sizing:border-box;
+    padding 12px 5px;
+    background:rgba(0,0,0,0.10);
+    outline:none;
+    border:none;
+    border-bottom:1px dotted #fff;
+    color:#fff;
+    border-radius:5px;
+    margin:0px;
+    font-weight:bold;
+    line-height: 2.5;
+}
+
+input[type=submit]
+{
+    width:100%;
+    box-sizing:border-box;
+    padding:10px 0;
+    margin-top:30px;
+    outline:none;
+    border:none;
+    background:#60adde;
+    opacity:0.7;
+    border-radius:20px;
+    font-size:20px;
+    color:#fff;
+}
