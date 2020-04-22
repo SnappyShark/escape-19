@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Add-List</title>
-	<link rel="stylesheet" type="text/css" href="portal.css">
+	<link rel="stylesheet" type="text/css" href="userentry.css">
     <div id="topbar">
             <a  href=""><button id="log">Log Out</button></a>
         </div>
@@ -15,14 +15,11 @@
         <h1>Customer Monitoring Portal</h1>
 
 		<form name="portal" action="userentry.php" method="post">
-			<input type ="text" placeholder="Customer Mobile Number" required>
+			<input type ="text" placeholder="Customer Mobile Number" name = "phone_num" required>
 
 			<input id="submit" type="submit" value="Submit">
 		</form>
-
-        </div>
-
+	</div>
 </body>
 	<script type="text/javascript" src="assets/js/buttonclick.js"></script>
-
 </html>
