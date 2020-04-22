@@ -23,5 +23,5 @@ $sql = "INSERT INTO log_cust_data VALUES($phone_num, '$date', '$time')";
 $result = $conn->query($sql);
 
 
-echo "<meta http-equiv='refresh' content='1;url=userentry.html'>"
+echo "<meta http-equiv='refresh' content='1.5;url=userentry.html'>"
 ?>
