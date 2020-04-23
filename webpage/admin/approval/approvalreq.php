@@ -1,7 +1,7 @@
 <?php
 
 //do all your css stuff and link it to the html stuff after this php code $table contains the table data
-// to display the content of the table do that <? echo $table?>  
+// to display the content of the table do that <? echo $table?>
 
 <?
 
@@ -152,7 +152,7 @@ function getStatus()
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <link rel = "stylesheet" type="text/css" href = "approvalreq.css">
+        <link rel = "stylesheet" type="text/css" href = "../../portal/generaterep.css">
     </head>
     <body>
         <?echo $table?>
