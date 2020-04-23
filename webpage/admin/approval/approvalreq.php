@@ -1,5 +1,10 @@
 <?php
 
+//do all your css stuff and link it to the html stuff after this php code $table contains the table data
+// to display the content of the table do that <? echo $table?>  
+
+<?
+
 $svr = '127.0.0.1';
 $usr = 'root';
 $password = '';
@@ -12,8 +17,10 @@ if ($conn->connect_error) {
 }
 
 $temp = 1;
+$table = "";
 
 echo "<meta http-equiv='refresh' content='5'>";
+
 echo "<br/> <br/> <center><h1>Retailer Application Request</h1></center><hr/>";
 
 $sql = "SELECT * FROM signup_retail WHERE verified = '0'";
@@ -75,11 +82,9 @@ $result = $conn->query($sql);
 
 if ($result->num_rows>0)
 {
-    print "<table border=3><tr><th>Shop Name</th><th>Shop Type</th>
+    $table = $table."<table border=3><tr><th>Shop Name</th><th>Shop Type</th>
 		   <th>Owner Name</th><th>Phone Number</th><th>Locality</th>
-		   <th>Address</th><th>Patrol Number</th><th>Approval</th>";
-
-    print "</tr>";
+		   <th>Address</th><th>Patrol Number</th><th>Approval</th></tr>";
 
     while($row = $result->fetch_assoc()) {
         $flag = "Pending";
@@ -95,15 +100,14 @@ if ($result->num_rows>0)
 
         $t = $row['phone_num'];
 
-        echo "<tr><td>".$row['shop_name']."</td><td>".$row['shop_type']."</td><td>".$row['owner_name'].
+        $table = $table."<tr><td>".$row['shop_name']."</td><td>".$row['shop_type']."</td><td>".$row['owner_name'].
 			 "</td><td>".$row['phone_num']."</td><td>".$row['locality']."</td><td>".$row['address']."</td><td>"
 			 .$row['patrol_num']."</td>";
 
         if($temp == 1)
         {
-            print "<td>";
+            $table = $table."<td></td>";
             $yol = getStatus();
-            print "</td>";
 
             $sql1 = "UPDATE signup_retail set verified = $yol WHERE phone_num = $t";
 
@@ -114,12 +118,12 @@ if ($result->num_rows>0)
             }
         }
 		else {
-			print "<td>".$flag."</td>";
+            $table = $table."<td>".$flag."</td>";
 		}
 
-        print "</tr>";
+        $table = $table."</tr>";
     }
-    echo "</table>";
+    $table = $table."</table>";
 }
 else
 {
@@ -143,3 +147,14 @@ function getStatus()
     }
 }
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel = "stylesheet" type="text/css" href = "approvalreq.css">
+    </head>
+    <body>
+        <?echo $table?>
+    </body>
+</html>

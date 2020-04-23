@@ -42,6 +42,10 @@ body
     height: auto;
 }
 
+table
+{
+	background-color: red;
+}
 .wrap
 {
     position: absolute;
