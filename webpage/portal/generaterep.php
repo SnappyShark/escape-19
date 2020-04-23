@@ -14,16 +14,16 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM log_cust_data ORDER BY date,time desc";
 $result = $conn->query($sql);
 
-print "<table border=3><tr><th>Phone</th><th>Date</th><th>Time</th></tr>";
+$table = "<table border=3><tr><th>Phone</th><th>Date</th><th>Time</th></tr>";
 
 while($row = $result->fetch_assoc()) {
 
     $t = $row['phone_num'];
-    echo "<tr><td>".$row['phone_num']."</td><td>".$row['date']."</td><td>".$row['time']."</td></tr>";
+    $table = $table."<tr><td>".$row['phone_num']."</td><td>".$row['date']."</td><td>".$row['time']."</td></tr>";
 }
 
-echo "</table>";
+$test = $table."</table>";
 
-
+echo $test;
 $conn->close();
 ?>
