@@ -19,33 +19,21 @@ $type = $_POST['type'];
   <link rel = "stylesheet" type="text/css" href = "signup.css">
 <?
 
-if($type === 'retailer')
+$table = 'login_'.$type;
+
+$sql = "SELECT * FROM $table WHERE user_name = '$usr' AND password = '$pwd'";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0)
 {
-    $sql = "SELECT COUNT(*) FROM login_admin WHERE 'name' = '$usr' AND 'password' = '$pwd' ";
-    $result = $conn->query($sql);
+    echo "Logged in successfully";
 
+    echo "<meta http-equiv='refresh' content='1;url=../$type/dashboard.html'>";
 
-    if($result === 1)
-    {
-        echo "Logged in successfully";
-    }
-    else {
-        echo "Incorrect Password, lmao";
-    }
 }
-else
-{
-
-    $sql = "SELECT * FROM login_retail WHERE shop_name = '$usr' AND password = '$pwd'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0)
-    {
-        echo "Logged in successfully";
-    }
-    else {
-        echo "Incorrect Password, lmao";
-    }
+else {
+    echo "Incorrect Password, lmao";
 }
 
 $conn->close();
