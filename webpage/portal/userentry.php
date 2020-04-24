@@ -18,8 +18,8 @@ date_default_timezone_set("Asia/Kolkata");
 $time = date("h:i");
 
 echo "Processing";
-
-$sql = "INSERT INTO log_cust_data VALUES($phone_num, '$date', '$time')";
+$store = $_COOKIE['user'];
+$sql = "INSERT INTO log_cust_data VALUES($phone_num, '$date', '$time', '$store')";
 $result = $conn->query($sql);
 
 

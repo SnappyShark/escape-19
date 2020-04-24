@@ -27,10 +27,11 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0)
 {
-    echo "Logged in successfully";
+    $cookie_name = "user";
+    $cookie_value = $usr;
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
     echo "<meta http-equiv='refresh' content='1;url=../$type/dashboard.html'>";
-
 }
 else {
     echo "Incorrect Password, lmao";
