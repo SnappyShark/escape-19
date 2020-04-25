@@ -27,14 +27,14 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0)
 {
-    $cookie_name = "user";
-    $cookie_value = $usr;
-    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+    setcookie("usr", $usr, time() + (86400 * 30), "/");
+    setcookie("type", $type, time() + (86400 * 30), "/");
 
+    echo "Logged in. Redirecting";
     echo "<meta http-equiv='refresh' content='1;url=../$type/dashboard.html'>";
 }
 else {
-    echo "Incorrect Password, lmao";
+    echo "Incorrect Password";
 }
 
 $conn->close();
