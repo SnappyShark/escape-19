@@ -12,16 +12,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$type = $_COOKIE['type'];
 
-$sql = "SELECT * FROM log_cust_data ORDER BY date,time desc";
-$result = $conn->query($sql);
+$usr = $_COOKIE['usr'];
+$type = $_COOKIE['type'];
+$sql = "";
 
 $table = "<table border=3><tr><th>Phone</th><th>Date</th><th>Time</th>";
 
 if($type === 'admin')
+{
     $table = $table."<th>Store Name</th>";
+    $sql = "SELECT * FROM log_cust_data ORDER BY date,time desc";
+}
+else {
+    $sql = "SELECT * FROM log_cust_data where store_name = '$usr'";
+}
 
+$result = $conn->query($sql);
 $table = $table."</tr>";
 
 while($row = $result->fetch_assoc()) {
