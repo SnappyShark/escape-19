@@ -82,6 +82,10 @@ $result = $conn->query($sql);
 
 if ($result->num_rows>0)
 {
+    echo "<table border=3><tr><th>Shop Name</th><th>Shop Type</th>
+		   <th>Owner Name</th><th>Phone Number</th><th>Locality</th>
+		   <th>Address</th><th>Patrol Number</th><th>Approval</th></tr>";
+
     $table = $table."<table border=3><tr><th>Shop Name</th><th>Shop Type</th>
 		   <th>Owner Name</th><th>Phone Number</th><th>Locality</th>
 		   <th>Address</th><th>Patrol Number</th><th>Approval</th></tr>";
@@ -100,14 +104,21 @@ if ($result->num_rows>0)
 
         $t = $row['phone_num'];
 
+        echo "<tr><td>".$row['shop_name']."</td><td>".$row['shop_type']."</td><td>".$row['owner_name'].
+			 "</td><td>".$row['phone_num']."</td><td>".$row['locality']."</td><td>".$row['address']."</td><td>"
+			 .$row['patrol_num']."</td>";
+
         $table = $table."<tr><td>".$row['shop_name']."</td><td>".$row['shop_type']."</td><td>".$row['owner_name'].
 			 "</td><td>".$row['phone_num']."</td><td>".$row['locality']."</td><td>".$row['address']."</td><td>"
 			 .$row['patrol_num']."</td>";
 
         if($temp == 1)
         {
-            $table = $table."<td></td>";
+            echo "<td>";
+            $table = $table."<td>";
             $yol = getStatus();
+            echo "</td>";
+            $table = $table."</td>";
 
             $sql1 = "UPDATE signup_retail set verified = $yol WHERE phone_num = $t";
 
@@ -118,11 +129,15 @@ if ($result->num_rows>0)
             }
         }
 		else {
+            echo "<td>".$flag."</td>";
             $table = $table."<td>".$flag."</td>";
 		}
 
+        $echo = "</tr>";
         $table = $table."</tr>";
     }
+
+    echo "</table>";
     $table = $table."</table>";
 }
 else
@@ -147,14 +162,3 @@ function getStatus()
     }
 }
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <link rel = "stylesheet" type="text/css" href = "../../portal/generaterep.css">
-    </head>
-    <body>
-        <?echo $table?>
-    </body>
-</html>
